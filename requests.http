@@ -1,0 +1,30 @@
+@baseUrl = http://localhost:3000
+### Get all materials
+GET {{baseUrl}}/materials
+
+### Перевірка фільтрації 
+GET {{baseUrl}}/materials?search=wood
+
+### Успішне отримання існуючого запису
+GET {{baseUrl}}/materials/1
+
+### Перевірка обробки 404
+GET {{baseUrl}}/materials/999
+
+### Із валідним JSON-тілом перевірка 201 created
+POST {{baseUrl}}/materials
+Content-Type: application/json
+
+{
+  "title": "Цегла червона",
+  "price": 1200,
+  "unitOfMeasure": "шт",
+  "weightPerUnitKg": 3.5,
+  "isHeavyCargo": false
+}
+
+### Часткове оновлення 
+PATCH {{baseUrl}}/materials/1
+
+### Перевірка видалення зі статусом 204 No Content
+DELETE {{baseUrl}}/materials/1
